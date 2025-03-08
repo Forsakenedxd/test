@@ -277,10 +277,10 @@ task.spawn(updateESP())
 local Button = Tab:CreateButton({
    Name = "change time",
    Callback = function()
-game:GetService("Lighting").Atmosphere:Destroy()
-game:GetService("Lighting").Sky:Destroy
-game:GetService("Lighting")["Dark night"]:Destroy()
-game:GetService("Lighting").HealthDesaturation:Destroy()
-game:GetService("Lighting"):ClockTime = 10
+   game:GetService("Lighting").Atmosphere:Destroy()
+      game:GetService("Lighting").Sky:Destroy
+      game:GetService("Lighting")["Dark night"]:Destroy()
+      game:GetService("Lighting").HealthDesaturation:Destroy()
+      game:GetService("Lighting"):ClockTime = 10
    end,
 })
