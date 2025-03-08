@@ -275,4 +275,25 @@ task.spawn(updateESP())
    end,
 })
 
-print("bro you really doed it?")
+local Button = Tab:CreateButton({
+   Name = "Set time to Day",
+   Callback = function()
+game:GetService("Lighting").Atmosphere:Destroy()
+game:GetService("Lighting").Sky:Destroy
+game:GetService("Lighting")["Dark night"]:Destroy()
+game:GetService("Lighting").HealthDesaturation:Destroy()
+game:GetService("Lighting"):ClockTime = 10
+DecalId = "rbxassetid://15198649455"
+ 
+SkyBox = Instance.new("Sky")
+SkyBox.Name = "Plus"
+SkyBox.Parent = game.Lighting
+SkyBox.SkyboxBk = DecalId
+SkyBox.SkyboxDn = DecalId
+SkyBox.SkyboxFt = DecalId
+SkyBox.SkyboxRt = DecalId
+SkyBox.SkyboxLf = DecalId
+SkyBox.SkyboxUp = DecalId
+SkyBox.StarCount = 0
+   end,
+})
