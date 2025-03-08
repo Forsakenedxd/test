@@ -30,7 +30,6 @@ removeScreenEffects()
 game:GetService("RunService").RenderStepped:Connect(function()
     removeScreenEffects()
 end)
-game:GetService("Lighting").ClockTime = 10
 DecalId = "rbxassetid://15198649455"
 
 SkyBox = Instance.new("Sky")
@@ -43,3 +42,4 @@ SkyBox.SkyboxRt = DecalId
 SkyBox.SkyboxLf = DecalId
 SkyBox.SkyboxUp = DecalId
 SkyBox.StarCount = 0
+game:GetService("Lighting").ClockTime = 10
