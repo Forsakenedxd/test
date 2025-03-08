@@ -1,0 +1,5 @@
+game:GetService("Lighting").Atmosphere:Destroy()
+game:GetService("Lighting").Sky:Destroy
+game:GetService("Lighting")["Dark night"]:Destroy()
+game:GetService("Lighting").HealthDesaturation:Destroy()
+game:GetService("Lighting"):ClockTime = 10
