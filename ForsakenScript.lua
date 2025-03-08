@@ -85,6 +85,8 @@ local args = {
 game:GetService("ReplicatedStorage"):WaitForChild("Modules"):WaitForChild("Network"):WaitForChild("RemoteEvent"):FireServer(unpack(args))
 wait(0)
 end
+      end,
+})
 
 local Button = Tab:CreateButton({
    Name = "Stop Animations",
