@@ -71,10 +71,10 @@ end
 })
 
 local Button = Tab:CreateButton({
-      Name = "Jumpstyle",
-      Callback = function()
+   Name = "Jumpstyle spam",
+   Callback = function()
 _G.anim = true
-
+            
 while _G.anim do
 local args = {
     [1] = "PlayEmote",
@@ -85,7 +85,7 @@ local args = {
 game:GetService("ReplicatedStorage"):WaitForChild("Modules"):WaitForChild("Network"):WaitForChild("RemoteEvent"):FireServer(unpack(args))
 wait(0)
 end
-    end,
+   end,
 })
 
 local Button = Tab:CreateButton({
