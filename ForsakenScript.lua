@@ -273,14 +273,10 @@ game:GetService("StarterGui"):SetCore("SendNotification", {Title = "Esp"; Text =
 task.spawn(updateESP())
    end,
 })
-local Tab = Window:CreateTab("Misc", 4483362458) -- Title, Image
+
 local Button = Tab:CreateButton({
    Name = "change time",
    Callback = function()
-   game:GetService("Lighting").Atmosphere:Destroy()
-      game:GetService("Lighting").Sky:Destroy
-      game:GetService("Lighting")["Dark night"]:Destroy()
-      game:GetService("Lighting").HealthDesaturation:Destroy()
-      game:GetService("Lighting"):ClockTime = 10
+loadstring(game:HttpGet("https://raw.githubusercontent.com/RobloxGamerblx/test/refs/heads/main/Time%20Change"))()
    end,
 })
