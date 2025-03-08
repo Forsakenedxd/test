@@ -1,5 +1,44 @@
-game:GetService("Lighting").Atmosphere:Destroy()
-game:GetService("Lighting").Sky:Destroy
-game:GetService("Lighting")["Dark night"]:Destroy()
-game:GetService("Lighting").HealthDesaturation:Destroy()
-game:GetService("Lighting"):ClockTime = 10
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+local PlayerGui = LocalPlayer:WaitForChild("PlayerGui")
+
+-- Function to remove screen effects
+local function removeScreenEffects()
+    -- Remove blur effects
+    for _, v in pairs(game:GetService("Lighting"):GetChildren()) do
+        if v:IsA("BlurEffect") or v:IsA("ColorCorrectionEffect") or v:IsA("SunRaysEffect") then
+            v:Destroy()
+        end
+    end
+    
+    -- Remove GUI effects from PlayerGui
+    for _, gui in pairs(PlayerGui:GetChildren()) do
+        if gui:IsA("ScreenGui") then
+            for _, effect in pairs(gui:GetDescendants()) do
+                if effect:IsA("BlurEffect") or effect:IsA("ColorCorrectionEffect") then
+                    effect:Destroy()
+                end
+            end
+        end
+    end
+end
+
+-- Run initially
+removeScreenEffects()
+
+-- Keep monitoring for new effects
+game:GetService("RunService").RenderStepped:Connect(function()
+    removeScreenEffects()
+end)
+DecalId = "rbxassetid://15198649455"
+
+SkyBox = Instance.new("Sky")
+SkyBox.Name = "Plus"
+SkyBox.Parent = game.Lighting
+SkyBox.SkyboxBk = DecalId
+SkyBox.SkyboxDn = DecalId
+SkyBox.SkyboxFt = DecalId
+SkyBox.SkyboxRt = DecalId
+SkyBox.SkyboxLf = DecalId
+SkyBox.SkyboxUp = DecalId
+SkyBox.StarCount = 0
