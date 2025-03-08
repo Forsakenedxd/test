@@ -276,7 +276,7 @@ task.spawn(updateESP())
 })
 
 local Button = Tab:CreateButton({
-   Name = "Set time to Day",
+   Name = "change time",
    Callback = function()
 game:GetService("Lighting").Atmosphere:Destroy()
 game:GetService("Lighting").Sky:Destroy
