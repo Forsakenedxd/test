@@ -87,6 +87,9 @@ end
    end,
 })
 
+local Tab = Window:CreateTab("Misc", nil) -- Title, Image
+local Section = Tab:CreateSection("Misc")
+
 local Button = Tab:CreateButton({
    Name = "ESP players",
    Callback = function()
