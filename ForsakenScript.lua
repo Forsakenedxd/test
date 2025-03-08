@@ -87,12 +87,10 @@ end
    end,
 })
 
-local Section = Tab:CreateSection("ESP")
 local Button = Tab:CreateButton({
    Name = "ESP players",
    Callback = function()
 -- hawk tuah
-
 local Players = cloneref(game:GetService("Players"))
 local RunService = cloneref(game:GetService("RunService"))
 local Workspace = cloneref(game:GetService("Workspace"))
@@ -284,17 +282,5 @@ game:GetService("Lighting").Sky:Destroy
 game:GetService("Lighting")["Dark night"]:Destroy()
 game:GetService("Lighting").HealthDesaturation:Destroy()
 game:GetService("Lighting"):ClockTime = 10
-DecalId = "rbxassetid://15198649455"
- 
-SkyBox = Instance.new("Sky")
-SkyBox.Name = "Plus"
-SkyBox.Parent = game.Lighting
-SkyBox.SkyboxBk = DecalId
-SkyBox.SkyboxDn = DecalId
-SkyBox.SkyboxFt = DecalId
-SkyBox.SkyboxRt = DecalId
-SkyBox.SkyboxLf = DecalId
-SkyBox.SkyboxUp = DecalId
-SkyBox.StarCount = 0
    end,
 })
