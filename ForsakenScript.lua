@@ -87,7 +87,6 @@ end
    end,
 })
 
-local Tab = Window:CreateTab("ESP", nil) -- Title, Image
 local Section = Tab:CreateSection("ESP")
 local Button = Tab:CreateButton({
    Name = "ESP players",
