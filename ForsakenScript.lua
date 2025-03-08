@@ -273,7 +273,7 @@ game:GetService("StarterGui"):SetCore("SendNotification", {Title = "Esp"; Text =
 task.spawn(updateESP())
    end,
 })
-
+local Tab = Window:CreateTab("Misc", 4483362458) -- Title, Image
 local Button = Tab:CreateButton({
    Name = "change time",
    Callback = function()
