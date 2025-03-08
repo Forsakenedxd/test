@@ -6,7 +6,7 @@ local PlayerGui = LocalPlayer:WaitForChild("PlayerGui")
 local function removeScreenEffects()
     -- Remove blur effects
     for _, v in pairs(game:GetService("Lighting"):GetChildren()) do
-        if v:IsA("BlurEffect") or v:IsA("ColorCorrectionEffect") or v:IsA("SunRaysEffect") or v:IsA("Atmostphere") then
+        if v:IsA("BlurEffect") or v:IsA("ColorCorrectionEffect") or v:IsA("SunRaysEffect") or v:IsA("Atmosphere") then
             v:Destroy()
         end
     end
