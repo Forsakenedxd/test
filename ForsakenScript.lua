@@ -291,19 +291,3 @@ game:GetService("StarterGui"):SetCore("SendNotification", {Title = "Esp"; Text =
 task.spawn(updateESP())
    end,
 })
-
-local Button = Tab:CreateButton({
-   Name = "Fullbright",
-   Callback = function()
-_G.light = true
-
-while _G.light do
-game:GetService("Lighting").Brightness = 2
-game:GetService("Lighting").ClockTime = 14
-game:GetService("Lighting").FogEnd = 100000
-game:GetService("Lighting").GlobalShadows = false
-game:GetService("Lighting").OutdoorAmbient = Color3.fromRGB(128, 128, 128)
-wait(0)
-end
-   end,
-})
