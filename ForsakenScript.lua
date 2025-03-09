@@ -295,6 +295,53 @@ task.spawn(updateESP())
 local Button = Tab:CreateButton({
    Name = "Remove Effects",
    Callback = function()
-   loadstring(game:HttpGet("https://raw.githubusercontent.com/RobloxGamerblx/test/refs/heads/main/Time%20Change"))()
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+local PlayerGui = LocalPlayer:WaitForChild("PlayerGui")
+
+-- Function to remove screen effects
+local function removeScreenEffects()
+    -- Remove blur effects
+    for _, v in pairs(game:GetService("Lighting"):GetChildren()) do
+        if v:IsA("BlurEffect") or v:IsA("ColorCorrectionEffect") or v:IsA("SunRaysEffect") or v:IsA("Atmosphere") or v:IsA("DepthOfField") then
+            v:Destroy()
+        end
+    end
+    
+    -- Remove GUI effects from PlayerGui
+    for _, gui in pairs(PlayerGui:GetChildren()) do
+        if gui:IsA("ScreenGui") then
+            for _, effect in pairs(gui:GetDescendants()) do
+                if effect:IsA("BlurEffect") or effect:IsA("ColorCorrectionEffect") or effect:IsA("Atmosphere") or effect:IsA("DepthOfField") then
+                    effect:Destroy()
+                end
+            end
+        end
+    end
+end
+
+-- Run initially
+removeScreenEffects()
+
+-- Keep monitoring for new effects
+game:GetService("RunService").RenderStepped:Connect(function()
+    removeScreenEffects()
+end)
+   end,
+})
+
+local Button = Tab:CreateButton({
+   Name = "Fullbright",
+   Callback = function()
+_G.light = true
+
+while _G.light do
+game:GetService("Lighting").Brightness = 2
+game:GetService("Lighting").ClockTime = 14
+game:GetService("Lighting").FogEnd = 100000
+game:GetService("Lighting").GlobalShadows = false
+game:GetService("Lighting").OutdoorAmbient = Color3.fromRGB(128, 128, 128)
+wait(0)
+end
    end,
 })
