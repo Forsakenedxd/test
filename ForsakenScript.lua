@@ -299,11 +299,9 @@ local Button = Tab:CreateButton({
    end,
 })
 
-local Toggle = Tab:CreateToggle({
+local Button = Tab:CreateButton({
    Name = "Loop day",
-   CurrentValue = false,
-   Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
-   Callback = function(Value)
+   Callback = function()
 _G.light = true
 
 while _G.light do
@@ -314,20 +312,5 @@ game:GetService("Lighting").GlobalShadows = false
 game:GetService("Lighting").OutdoorAmbient = Color3.fromRGB(128, 128, 128)
 wait(0)
 end
-
-while _G.light = false
-
-_G.light = false
-
-while _G.light do
-game:GetService("Lighting").Brightness = 2
-game:GetService("Lighting").ClockTime = 14
-game:GetService("Lighting").FogEnd = 100000
-game:GetService("Lighting").GlobalShadows = false
-game:GetService("Lighting").OutdoorAmbient = Color3.fromRGB(128, 128, 128)
-wait(0)
-end
-
-while _G.light = false
    end,
 })
