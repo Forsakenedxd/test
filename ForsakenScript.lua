@@ -291,3 +291,17 @@ game:GetService("StarterGui"):SetCore("SendNotification", {Title = "Esp"; Text =
 task.spawn(updateESP())
    end,
 })
+
+local Button = Tab:CreateButton({
+   Name = "Remove Blur",
+   Callback = function()
+      loadstring(game:HttpGet("https://raw.githubusercontent.com/RobloxGamerblx/test/refs/heads/main/Time%20Change"))()
+   end,
+})
+
+local Button = Tab:CreateButton({
+      Name = "fullbright"
+      callback = function()
+         loadstring(game:HttpGet("https://raw.githubusercontent.com/RobloxGamerblx/test/refs/heads/main/timechange2"))()
+      end,
+})
