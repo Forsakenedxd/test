@@ -1,3 +1,9 @@
+Lighting.Brightness = 2
+Lighting.ClockTime = 14
+Lighting.FogEnd = 100000
+Lighting.GlobalShadows = false
+Lighting.OutdoorAmbient = Color3.fromRGB(128, 128, 128)
+
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
 local PlayerGui = LocalPlayer:WaitForChild("PlayerGui")
@@ -42,10 +48,3 @@ SkyBox.SkyboxRt = DecalId
 SkyBox.SkyboxLf = DecalId
 SkyBox.SkyboxUp = DecalId
 SkyBox.StarCount = 0
-
-Lighting.Brightness = 2
-Lighting.ClockTime = 14
-Lighting.FogEnd = 100000
-Lighting.GlobalShadows = false
-Lighting.OutdoorAmbient = Color3.fromRGB(128, 128, 128)
-end)
