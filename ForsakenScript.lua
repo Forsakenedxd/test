@@ -300,7 +300,7 @@ local Button = Tab:CreateButton({
 })
 
 local Button = Tab:CreateButton({
-   Name = "Loop day",
+   Name = "Button Example",
    Callback = function()
 _G.light = true
 
@@ -312,5 +312,7 @@ game:GetService("Lighting").GlobalShadows = false
 game:GetService("Lighting").OutdoorAmbient = Color3.fromRGB(128, 128, 128)
 wait(0)
 end
+
+while _G.light = false
    end,
 })
