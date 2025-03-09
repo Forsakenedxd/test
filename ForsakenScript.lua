@@ -302,16 +302,6 @@ local Button = Tab:CreateButton({
 local Button = Tab:CreateButton({
    Name = "fullbright",
    Callback = function()
-
-_G.light = true
-
-while _G.light do
-game:GetService("Lighting").Brightness = 2
-game:GetService("Lighting").ClockTime = 14
-game:GetService("Lighting").FogEnd = 100000
-game:GetService("Lighting").GlobalShadows = false
-game:GetService("Lighting").OutdoorAmbient = Color3.fromRGB(128, 128, 128)
-wait(0)
-end
+loadstring(game:HttpGet("https://raw.githubusercontent.com/RobloxGamerblx/test/refs/heads/main/timechange2"))()
    end,
 })
