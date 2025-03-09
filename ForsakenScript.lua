@@ -295,13 +295,6 @@ task.spawn(updateESP())
 local Button = Tab:CreateButton({
    Name = "remove effects",
    Callback = function()
-      loadstring(game:HttpGet("https://raw.githubusercontent.com/RobloxGamerblx/test/refs/heads/main/Time%20Change"))()
-   end,
-})
-
-local Button = Tab:CreateButton({
-   Name = "fullbright",
-   Callback = function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/RobloxGamerblx/test/refs/heads/main/timechange2"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/RobloxGamerblx/test/refs/heads/main/Time%20Change"))()
    end,
 })
