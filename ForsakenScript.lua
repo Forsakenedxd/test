@@ -293,7 +293,7 @@ task.spawn(updateESP())
 })
 
 local Button = Tab:CreateButton({
-   Name = "blur",
+   Name = "remove blur",
    Callback = function()
       loadstring(game:HttpGet("https://raw.githubusercontent.com/RobloxGamerblx/test/refs/heads/main/Time%20Change"))()
    end,
