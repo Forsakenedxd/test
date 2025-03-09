@@ -9,4 +9,3 @@ game:GetService("Lighting").OutdoorAmbient = Color3.fromRGB(128, 128, 128)
 wait(0)
 end
 
-while _G.light = false
