@@ -220,7 +220,7 @@ local function updateHealthIndicators()
                 if healthGui then
                     local healthLabel = healthGui:FindFirstChildOfClass("TextLabel")
                     if healthLabel then
-                        healthLabel.Text = math.floor(humanoid.Health) .. "/" .. humanoid.MaxHealth
+                        healthLabel.Text = math.floor(humanoid.Health) .. "|" .. humanoid.MaxHealth
                         healthLabel.TextColor3 = textColor
                     end
                 end
@@ -284,7 +284,7 @@ local function updateESP()
         highlightGenerators()
         
 
-        task.wait(0) -- More accurate and efficient timing
+        task.wait(4) -- More accurate and efficient timing
     end
 end
 game:GetService("StarterGui"):SetCore("SendNotification", {Title = "Esp"; Text = "Loaded!"; Duration = 20})
