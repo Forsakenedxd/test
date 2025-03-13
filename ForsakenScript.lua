@@ -287,7 +287,7 @@ local function updateESP()
         highlightGenerators()
         
 
-        task.wait(0) -- More accurate and efficient timing
+        task.wait(4) -- More accurate and efficient timing
     end
 end
 game:GetService("StarterGui"):SetCore("SendNotification", {Title = "Esp"; Text = "Loaded!"; Duration = 20})
