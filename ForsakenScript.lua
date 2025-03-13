@@ -105,6 +105,9 @@ end
    end,
 })
 
+local Tab = Window:CreateTab("Annoying for peoples", "angry")
+local Section = Tab:CreateSection("ESP")
+
 local Button = Tab:CreateButton({
    Name = "ESP players",
    Callback = function()
@@ -292,6 +295,7 @@ task.spawn(updateESP())
    end,
 })
 
+local Section = Tab:CreateSection("Helper")
 local Button = Tab:CreateButton({
    Name = "remove blur",
    Callback = function()
