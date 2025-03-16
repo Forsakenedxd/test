@@ -108,7 +108,7 @@ end
 local Tab = Window:CreateTab("Annoying for peoples", "angry")
 local Section = Tab:CreateSection("ESP")
 
-local Toggle = Tab:CreateToggle({
+local Toggle = Tab:CreateButton({
    Name = "ESP",
    Callback = function()
 print("hawk tuah")
