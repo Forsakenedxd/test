@@ -110,13 +110,8 @@ local Section = Tab:CreateSection("ESP")
 
 local Toggle = Tab:CreateToggle({
    Name = "ESP",
-   CurrentValue = false,
-   Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
-   Callback = function(Value)
-_G.esp = true
-
-while _G.esp do
--- hawk tuah
+   Callback = function()
+print("hawk tuah")
 local Players = cloneref(game:GetService("Players"))
 local RunService = cloneref(game:GetService("RunService"))
 local Workspace = cloneref(game:GetService("Workspace"))
@@ -297,10 +292,6 @@ local function updateESP()
 end
 game:GetService("StarterGui"):SetCore("SendNotification", {Title = "Esp"; Text = "Loaded!"; Duration = 20})
 task.spawn(updateESP())
-   -- The variable (Value) is a boolean on whether the toggle is true or false
-_G.esp = false
-
-while _G.esp do
    end,
 })
 
