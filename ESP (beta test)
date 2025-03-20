@@ -1,0 +1,155 @@
+print("this is f@cking undetected!")
+
+local Players = cloneref(game:GetService("Players"))
+local RunService = cloneref(game:GetService("RunService"))
+local Workspace = cloneref(game:GetService("Workspace"))
+
+
+local function createTextLabel(tool)
+    
+    if tool:FindFirstChild("ToolNameLabel") then return end
+
+    
+    local billboard = Instance.new("BillboardGui")
+    billboard.Name = "ToolNameLabel"
+    billboard.Adornee = tool
+    billboard.Size = UDim2.new(0, 100, 0, 30)
+    billboard.StudsOffset = Vector3.new(0, 2, 0)
+    billboard.AlwaysOnTop = true
+    billboard.MaxDistance = math.huge
+
+    
+    local textLabel = Instance.new("TextLabel")
+    textLabel.Size = UDim2.new(1, 0, 1, 0)
+    textLabel.BackgroundTransparency = 1
+    textLabel.Text = tool.Name
+    textLabel.TextColor3 = Color3.new(1, 1, 1) -- White text
+    textLabel.TextScaled = true
+    textLabel.Font = Enum.Font.SourceSansBold
+    textLabel.Parent = billboard
+
+    
+    billboard.Parent = tool
+end
+
+local function applyOutline(tool)
+    -- check it
+    if not tool:FindFirstChildOfClass("Highlight") then
+        local highlight = Instance.new("Highlight")
+        highlight.FillColor = Color3.new(1, 1, 0) -- yallow of yapping
+        highlight.OutlineColor = Color3.new(1, 0, 0) -- red kill them
+        highlight.Parent = tool
+    end
+
+    
+    createTextLabel(tool)
+end
+
+
+for _, obj in Workspace:GetDescendants() do
+    if obj:IsA("Tool") and not (obj.Name == "RedFlag" or obj.Name == "BlueFlag" or obj.Name == "Item") then
+        applyOutline(obj)
+    end
+end
+
+
+Workspace.DescendantAdded:Connect(function(obj)
+    if obj:IsA("Tool") then
+        applyOutline(obj)
+    end
+end)
+
+
+game:GetService("StarterGui"):SetCore("SendNotification", {Title = "Item Esp"; Text = "Loaded with error 404!"; Duration = 5})
+
+
+
+local function createOutlineESP(model, outlineColor, fillColor)
+    if model and not model:FindFirstChildOfClass("Highlight") then
+        local highlight = Instance.new("Highlight")
+        highlight.Parent = model
+        highlight.Adornee = model
+        highlight.FillTransparency = 0.75
+        highlight.FillColor = fillColor
+        highlight.OutlineColor = outlineColor
+        highlight.OutlineTransparency = 0 
+    end
+end
+
+local function updateHealthIndicators()
+    for _, player in Players:GetPlayers() do
+        local character = player.Character
+        if character then
+            local humanoid = character:FindFirstChildOfClass("Humanoid")
+            local head = character:FindFirstChild("Head")
+            if humanoid and head then
+                local textColor = humanoid.MaxHealth > 500 and Color3.new(1, 0, 0) or Color3.new(1, 1, 1) -- Red if max HP > 500
+                createHealthIndicator(character, textColor)
+              
+                    end
+                end
+            end
+        end
+    end
+end
+
+local function createOutlineESPForGroup(group, outlineColor, fillColor)
+    if group then
+        for _, obj in group:GetChildren() do
+            local humanoid = obj:FindFirstChildOfClass("Humanoid")
+            local rootPart = obj:FindFirstChild("HumanoidRootPart")
+            if humanoid and rootPart then
+                createOutlineESP(obj, outlineColor, fillColor)
+            end
+        end
+    end
+end
+
+local function highlightGenerators()
+    for _, obj in workspace:GetDescendants() do
+    if obj:IsA("Model") and obj.Name == "Generator" then
+        createOutlineESP(obj, Color3.new(1, 1, 0), Color3.new(1, 1, 0.5)) -- Yellow outline, light yellow fill
+    end
+end
+end
+
+local function updateESP()
+    while true do
+        local players = Players:GetPlayers() -- Store once to avoid multiple function calls
+
+        for _, player in players do
+            local character = player.Character
+            if character then
+                -- Clear existing highlights
+                for _, obj in character:GetChildren() do
+                    if obj:IsA("Highlight") then
+                        obj:Destroy()
+                    end
+                end
+
+                -- Check humanoid and apply ESP accordingly
+                local humanoid = character:FindFirstChildOfClass("Humanoid")
+                if humanoid then
+                    if humanoid.MaxHealth > 500 then
+                        -- Killars
+                        createOutlineESP(character, Color3.new(1, 0, 0), Color3.new(1, 0.5, 0.5))
+                        createHealthIndicator(character, Color3.new(1, 0, 0))
+                    else
+                        -- surviors (Kill them all)
+                        createOutlineESP(character, Color3.new(0.5, 0.5, 0.5), Color3.new(0.7, 0.7, 0.7))
+                        createHealthIndicator(character, Color3.new(1, 1, 1))
+                    end
+                end
+            end
+        end
+
+        
+        updateHealthIndicators()
+        highlightGenerators()
+        
+
+        task.wait(3) -- More accurate and efficient timing
+    end
+end
+game:GetService("StarterGui"):SetCore("SendNotification", {Title = "Esp"; Text = "Loaded!"; Duration = 20})
+task.spawn(updateESP())
