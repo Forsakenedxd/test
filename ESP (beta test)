@@ -1,4 +1,4 @@
-print("this is f@cking undetected!")
+-- hawk tuah
 
 local Players = cloneref(game:GetService("Players"))
 local RunService = cloneref(game:GetService("RunService"))
@@ -33,11 +33,11 @@ local function createTextLabel(tool)
 end
 
 local function applyOutline(tool)
-    -- check it
+    -- Check if it already has a highlight
     if not tool:FindFirstChildOfClass("Highlight") then
         local highlight = Instance.new("Highlight")
-        highlight.FillColor = Color3.new(1, 1, 0) -- yallow of yapping
-        highlight.OutlineColor = Color3.new(1, 0, 0) -- red kill them
+        highlight.FillColor = Color3.new(1, 1, 0) -- Yellow glow
+        highlight.OutlineColor = Color3.new(1, 0, 0) -- Red outline
         highlight.Parent = tool
     end
 
@@ -60,7 +60,7 @@ Workspace.DescendantAdded:Connect(function(obj)
 end)
 
 
-game:GetService("StarterGui"):SetCore("SendNotification", {Title = "Item Esp"; Text = "Loaded with error 404!"; Duration = 5})
+game:GetService("StarterGui"):SetCore("SendNotification", {Title = "Item Esp"; Text = "Loaded!"; Duration = 5})
 
 
 
@@ -76,6 +76,27 @@ local function createOutlineESP(model, outlineColor, fillColor)
     end
 end
 
+local function createHealthIndicator(character, textColor)
+    local head = character:FindFirstChild("Head")
+    if head and not head:FindFirstChild("HealthGui") then
+        local healthGui = Instance.new("BillboardGui")
+        healthGui.Name = "HealthGui"
+        healthGui.Size = UDim2.new(0, 100, 0, 30)
+        healthGui.AlwaysOnTop = true
+        healthGui.MaxDistance = math.huge
+        healthGui.Parent = head
+
+        local healthLabel = Instance.new("TextLabel")
+        healthLabel.Size = UDim2.new(1, 0, 1, 0)
+        healthLabel.BackgroundTransparency = 1
+        healthLabel.TextScaled = true
+        healthLabel.Text = ""
+        healthLabel.TextColor3 = textColor
+        healthLabel.Font = Enum.Font.SourceSansBold
+        healthLabel.Parent = healthGui
+    end
+end
+
 local function updateHealthIndicators()
     for _, player in Players:GetPlayers() do
         local character = player.Character
@@ -85,7 +106,13 @@ local function updateHealthIndicators()
             if humanoid and head then
                 local textColor = humanoid.MaxHealth > 500 and Color3.new(1, 0, 0) or Color3.new(1, 1, 1) -- Red if max HP > 500
                 createHealthIndicator(character, textColor)
-              
+                
+                local healthGui = head:FindFirstChild("HealthGui")
+                if healthGui then
+                    local healthLabel = healthGui:FindFirstChildOfClass("TextLabel")
+                    if healthLabel then
+                        healthLabel.Text = math.floor(humanoid.Health) .. "/" .. humanoid.MaxHealth
+                        healthLabel.TextColor3 = textColor
                     end
                 end
             end
@@ -131,11 +158,11 @@ local function updateESP()
                 local humanoid = character:FindFirstChildOfClass("Humanoid")
                 if humanoid then
                     if humanoid.MaxHealth > 500 then
-                        -- Killars
+                        -- High HP players get red ESP & red health indicator
                         createOutlineESP(character, Color3.new(1, 0, 0), Color3.new(1, 0.5, 0.5))
                         createHealthIndicator(character, Color3.new(1, 0, 0))
                     else
-                        -- surviors (Kill them all)
+                        -- Normal players not in Killers/Survivors get gray ESP & white health indicator
                         createOutlineESP(character, Color3.new(0.5, 0.5, 0.5), Color3.new(0.7, 0.7, 0.7))
                         createHealthIndicator(character, Color3.new(1, 1, 1))
                     end
