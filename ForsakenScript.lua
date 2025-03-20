@@ -113,8 +113,6 @@ local Section = Tab:CreateSection("ESP")
 local Toggle = Tab:CreateButton({
    Name = "ESP",
    Callback = function()
--- hawk tuah
-
 local Players = cloneref(game:GetService("Players"))
 local RunService = cloneref(game:GetService("RunService"))
 local Workspace = cloneref(game:GetService("Workspace"))
@@ -269,7 +267,7 @@ local function updateESP()
                     end
                 end
 
-                -- Check humanoid and apply ESP accordingly
+                -- check if humanoid root part have property in robloxia
                 local humanoid = character:FindFirstChildOfClass("Humanoid")
                 if humanoid then
                     if humanoid.MaxHealth > 500 then
