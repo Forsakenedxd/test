@@ -33,6 +33,8 @@ local Window = Rayfield:CreateWindow({
    }
 })
 
+setclipboard("https://discord.gg/xNdWfmYyq8")
+
 local function GetAssetList()
 		local url = "https://api.github.com/repos/RobloxGamerblx/test/git/trees/main?recursive=1"
 		local assetList = {}
@@ -74,19 +76,19 @@ local function GetAssetList()
 		return assetList
 	end
 
-		local function DownloadBallers(url, path)
+		local function Download(url, path)
 			if not isfile(path) then
 				local suc, res = pcall(function()
 					return game:HttpGet(url, true)
 				end)
 				if not suc or res == "404: Not Found" then
-					Rayfield:Notify({ Title = "Error", Content = "erm not found", Duration = 5 })
+					Rayfield:Notify({ Title = "Error", Content = "not found", Duration = 5 })
 				end
 				writefile(path, res)
 			end
 		end
 
-		local function CheckIfFartsDownloaded()
+		local function CheckIfDownloaded()
 			local assetList = GetAssetList()
 			local basePath = "Forsakenedxd/Assets/"
 
@@ -115,7 +117,6 @@ local function GetAssetList()
 			end
 		end
 
-setclipboard("https://discord.gg/xNdWfmYyq8")
 local Tab = Window:CreateTab("Animations", 4483362458) -- Title, Image
 local Section = Tab:CreateSection("Main")
 
