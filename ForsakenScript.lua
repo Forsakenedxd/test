@@ -35,88 +35,6 @@ local Window = Rayfield:CreateWindow({
 
 setclipboard("https://discord.gg/xNdWfmYyq8")
 
-local function GetAssetList()
-		local url = "https://api.github.com/repos/RobloxGamerblx/test/git/trees/main?recursive=1"
-		local assetList = {}
-
-		local success, errorMessage = pcall(function()
-			local Request = http_request or syn.request or request
-			if Request then
-				local response = Request({
-					Url = url,
-					Method = "GET",
-					Headers = { ["Content-Type"] = "application/json" },
-				})
-
-				if response and response.Body then
-					local data = game:GetService("HttpService"):JSONDecode(response.Body)
-					for _, item in ipairs(data.tree) do
-						if
-							item.path:match("^Assets/.+%.png$")
-							or item.path:match("^Assets/.+%.mp4$")
-							or item.path:match("Assets/(.+)%.mp3$")
-						then
-							local rawUrl = "https://raw.githubusercontent.com/RobloxGamerblx/test/main/" .. item.path
-							table.insert(assetList, rawUrl)
-
-							local name = item.path:match("Assets/(.+)%.png$") or item.path:match("Assets/(.+)%.mp4$")
-							if name then
-								table.insert(NameProtectNames, name)
-							end
-							
-						end
-					end
-				end
-			end
-		end)
-
-		if not success then
-			Rayfield:Notify({ Title = "Error", Content = errorMessage, Duration = 5 })
-		end
-		return assetList
-	end
-
-		local function Download(url, path)
-			if not isfile(path) then
-				local suc, res = pcall(function()
-					return game:HttpGet(url, true)
-				end)
-				if not suc or res == "404: Not Found" then
-					Rayfield:Notify({ Title = "Error", Content = "not found", Duration = 5 })
-				end
-				writefile(path, res)
-			end
-		end
-
-		local function CheckIfDownloaded()
-			local assetList = GetAssetList()
-			local basePath = "Forsakenedxd/Assets/"
-
-			if not isfolder("Forsakenedxd") then
-				makefolder("Forsakenedxd")
-			end
-
-			if not isfolder(basePath) then
-				makefolder(basePath)
-			end
-
-			for _, url in ipairs(assetList) do
-				local filePath = basePath .. url:match("Assets/(.+)")
-				if filePath then
-					local newFilePath = filePath:gsub("%.png$", ".png"):gsub("%.mp4$", ".mp4"):gsub("%.mp3$", ".mp3")
-
-					if not isfile(newFilePath) then
-						local folderPath = newFilePath:match("(.*/)")
-						if folderPath and not isfolder(folderPath) then
-							makefolder(folderPath)
-						end
-						DownloadBallers(url, newFilePath)
-						Rayfield:Notify({ Title = "Downloaded", Content = newFilePath, Duration = 1, Image = "download" })
-					end
-				end
-			end
-		end
-
 local Tab = Window:CreateTab("Animations", 4483362458) -- Title, Image
 local Section = Tab:CreateSection("Main")
 
@@ -391,36 +309,5 @@ local Button = Tab:CreateButton({
    Name = "day",
    Callback = function()
       loadstring(game:HttpGet("https://raw.githubusercontent.com/RobloxGamerblx/test/refs/heads/main/timechange2"))()
-   end,
-})
-local Tab = Window:CreateTab("Last Man Standing", "Happy")
-local Section = Tab:CreateSection("Last Music")
-
-local Dropdown = Tab:CreateDropdown({
-   Name = "LastmanStanding",
-   Options = {"ShedletskyOLD","ShedletskyNEW"},
-   CurrentOption = {"ShedletskyOLD"},
-   MultipleOptions = false,
-   Flag = "Dropdown1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
-   Callback = function(Options)
- CurrentSound = MusicList[Options[1]]
-				if ReplaceStandingMusic then
-					ChangeMusic(CurrentSound)
-				end
-			end,
-		})
-
-local Toggle = Tab:CreateToggle({
-			Name = "Replace Last Standing Music",
-			CurrentValue = false,
-			Callback = function(state)
-				LastStandingReplacement(state)
-				if ReplaceStandingMusic then
-					ChangeMusic(CurrentSound)
-				end
-			end,
-		})
-
-   -- The variable (Options) is a table of strings for the current selected options
    end,
 })
