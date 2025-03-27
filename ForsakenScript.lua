@@ -317,10 +317,10 @@ local Slider = Tab:CreateSlider({
    Suffix = "Of Stamina",
    CurrentValue = 100,
    Flag = "Slider1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
-   Callback = function(Value)
+   Callback = function(Stamina)
 local Sprinting = game:GetService("ReplicatedStorage").Systems.Character.Game.Sprinting
 local m = require(Sprinting)
-m.MaxStamina = Value
+m.MaxStamina = Stamina
 m.StaminaGain = 15
 
 
@@ -342,12 +342,12 @@ local Slider = Tab:CreateSlider({
 local Sprinting = game:GetService("ReplicatedStorage").Systems.Character.Game.Sprinting
 local m = require(Sprinting)
 m.MaxStamina = 100
-m.StaminaGain = 15
+m.StaminaGain = Value
 
 
 
 m.StaminaLoss = 10
-m.SprintSpeed = Value
+m.SprintSpeed = Stamina
    end,
 })
 
