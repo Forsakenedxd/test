@@ -11,7 +11,7 @@ local Window = Rayfield:CreateWindow({
 
    ConfigurationSaving = {
       Enabled = true,
-      FolderName = Forsakenedxd, -- Create a custom folder for your hub/game
+      FolderName = ForsakenedIsReal, -- Create a custom folder for your hub/game
       FileName = "Forsakenedyezz"
    },
 
@@ -309,6 +309,28 @@ local Button = Tab:CreateButton({
       loadstring(game:HttpGet("https://raw.githubusercontent.com/RobloxGamerblx/test/refs/heads/main/timechange2"))()
    end,
 })
+
+local Slider = Tab:CreateSlider({
+   Name = "Max Stamina",
+   Range = {90, 115},
+   Increment = 10,
+   Suffix = "Of Stamina",
+   CurrentValue = 100,
+   Flag = "Slider1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+local Sprinting = game:GetService("ReplicatedStorage").Systems.Character.Game.Sprinting
+local m = require(Sprinting)
+m.MaxStamina = Value
+m.StaminaGain = 15
+
+
+
+m.StaminaLoss = 10
+m.SprintSpeed = 29
+   -- The variable (Value) is a number which correlates to the value the slider is currently at
+   end,
+})
+
 local Tab = Window:CreateTab("Settings Themes", 4483362458) -- Title, Image
 local Section = Tab:CreateSection("Themes")
 
