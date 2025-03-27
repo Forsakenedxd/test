@@ -348,13 +348,6 @@ local Button = Tab:CreateButton({
 })
 
 local Button = Tab:CreateButton({
-   Name = "Button Example",
-   Callback = function()
-   Window.ModifyTheme('ThemeIdentifier')
-   end,
-})
-
-local Button = Tab:CreateButton({
    Name = "Green",
    Callback = function()
    Window.ModifyTheme('Green')
@@ -362,7 +355,7 @@ local Button = Tab:CreateButton({
 })
 
 local Button = Tab:CreateButton({
-   Name = "BGet blinded",
+   Name = "Get blinded",
    Callback = function()
    Window.ModifyTheme('Light')
    end,
