@@ -312,7 +312,7 @@ local Button = Tab:CreateButton({
 
 local Slider = Tab:CreateSlider({
    Name = "Max Stamina",
-   Range = {90, 115},
+   Range = {90, 125},
    Increment = 10,
    Suffix = "Of Stamina",
    CurrentValue = 100,
