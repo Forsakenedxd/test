@@ -326,7 +326,7 @@ m.StaminaGain = 25
 
 
 m.StaminaLoss = 10
-m.SprintSpeed = 26
+m.SprintSpeed = Value
    -- The variable (Value) is a number which correlates to the value the slider is currently at
    end,
 })
@@ -336,7 +336,7 @@ local Slider = Tab:CreateSlider({
    Range = {20, 29},
    Increment = 10,
    Suffix = "Of speed",
-   CurrentValue = 100,
+   CurrentValue = 26,
    Flag = "Slider1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
    Callback = function(Value)
 local Sprinting = game:GetService("ReplicatedStorage").Systems.Character.Game.Sprinting
