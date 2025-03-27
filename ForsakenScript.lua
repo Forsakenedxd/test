@@ -321,7 +321,7 @@ local Slider = Tab:CreateSlider({
 local Sprinting = game:GetService("ReplicatedStorage").Systems.Character.Game.Sprinting
 local m = require(Sprinting)
 m.MaxStamina = Stamina
-m.StaminaGain = 15
+m.StaminaGain = 25
 
 
 
@@ -333,7 +333,7 @@ m.SprintSpeed = 26
 
 local Slider = Tab:CreateSlider({
    Name = "Stamina",
-   Range = {25, 28},
+   Range = {20, 29},
    Increment = 10,
    Suffix = "Of speed",
    CurrentValue = 100,
@@ -341,15 +341,16 @@ local Slider = Tab:CreateSlider({
    Callback = function(Value)
 local Sprinting = game:GetService("ReplicatedStorage").Systems.Character.Game.Sprinting
 local m = require(Sprinting)
-m.MaxStamina = 100
-m.StaminaGain = Value
+m.MaxStamina = Stamina
+m.StaminaGain = 25
 
 
 
 m.StaminaLoss = 10
-m.SprintSpeed = Stamina
+m.SprintSpeed = Value
    end,
 })
+
 
 local Tab = Window:CreateTab("Settings Themes", 4483362458) -- Title, Image
 local Section = Tab:CreateSection("Themes")
