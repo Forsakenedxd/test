@@ -16,7 +16,7 @@ local Window = Rayfield:CreateWindow({
    },
 
    Discord = {
-      Enabled = false, -- Prompt the user to join your Discord server if their executor supports it
+      Enabled = true, -- Prompt the user to join your Discord server if their executor supports it
       Invite = "xNdWfmYyq8", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ ABCD would be ABCD
       RememberJoins = true -- Set this to false to make them join the discord every time they load it up
    },
@@ -32,8 +32,6 @@ local Window = Rayfield:CreateWindow({
       Key = {"c00lguiwth"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
    }
 })
-
-setclipboard("https://discord.gg/xNdWfmYyq8")
 
 local Tab = Window:CreateTab("Animations", 4483362458) -- Title, Image
 local Section = Tab:CreateSection("Main")
@@ -311,3 +309,77 @@ local Button = Tab:CreateButton({
       loadstring(game:HttpGet("https://raw.githubusercontent.com/RobloxGamerblx/test/refs/heads/main/timechange2"))()
    end,
 })
+local Tab = Window:CreateTab("Settings Themes", 4483362458) -- Title, Image
+local Section = Tab:CreateSection("Themes")
+
+local Button = Tab:CreateButton({
+   Name = "Default",
+   Callback = function()
+   Window.ModifyTheme('Default')
+   end,
+})
+
+local Button = Tab:CreateButton({
+   Name = "Amber Glow",
+   Callback = function()
+   Window.ModifyTheme('AmberGlow')
+   end,
+})
+
+local Button = Tab:CreateButton({
+   Name = "Amethyst",
+   Callback = function()
+   Window.ModifyTheme('Amethyst')
+   end,
+})
+
+local Button = Tab:CreateButton({
+   Name = "Bloom",
+   Callback = function()
+   Window.ModifyTheme('Bloom')
+   end,
+})
+
+local Button = Tab:CreateButton({
+   Name = "Dark Blue",
+   Callback = function()
+   Window.ModifyTheme('DarkBlue')
+   end,
+})
+
+local Button = Tab:CreateButton({
+   Name = "Button Example",
+   Callback = function()
+   Window.ModifyTheme('ThemeIdentifier')
+   end,
+})
+
+local Button = Tab:CreateButton({
+   Name = "Green",
+   Callback = function()
+   Window.ModifyTheme('Green')
+   end,
+})
+
+local Button = Tab:CreateButton({
+   Name = "BGet blinded",
+   Callback = function()
+   Window.ModifyTheme('Light')
+   end,
+})
+
+local Button = Tab:CreateButton({
+   Name = "Ocean",
+   Callback = function()
+   Window.ModifyTheme('Ocean')
+   end,
+})
+
+local Button = Tab:CreateButton({
+   Name = "Serenity",
+   Callback = function()
+   Window.ModifyTheme('Serenity')
+   end,
+})
+
+Rayfield:LoadConfiguration()
