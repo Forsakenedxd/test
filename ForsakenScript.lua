@@ -110,7 +110,7 @@ local Tab = Window:CreateTab("Annoying for peoples", "angry")
 local Section = Tab:CreateSection("ESP")
 
 local Button = Tab:CreateButton({
-   Name = "Button Example",
+   Name = "ESP",
    Callback = function()
 local Players = cloneref(game:GetService("Players"))
 local RunService = cloneref(game:GetService("RunService"))
