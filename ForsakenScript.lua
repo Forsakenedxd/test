@@ -106,11 +106,11 @@ end
    end,
 })
 
+-- ESP on
+local EspDoing = false
+
 local Tab = Window:CreateTab("Annoying for peoples", "angry")
 local Section = Tab:CreateSection("ESP")
--- ESP on
-EspDoing = false
-
 
 local Toggle = Tab:CreateToggle({
    Name = "ESP",
@@ -118,7 +118,6 @@ local Toggle = Tab:CreateToggle({
    Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
    Callback = function(Value)
 EspDoing = Value
-
 while EspDoing do
 local Players = cloneref(game:GetService("Players"))
 local RunService = cloneref(game:GetService("RunService"))
