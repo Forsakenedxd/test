@@ -106,19 +106,12 @@ end
    end,
 })
 
--- ESP on
-local EspDoing = false
-
 local Tab = Window:CreateTab("Annoying for peoples", "angry")
 local Section = Tab:CreateSection("ESP")
 
-local Toggle = Tab:CreateToggle({
-   Name = "ESP",
-   CurrentValue = false,
-   Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
-   Callback = function(Value)
-EspDoing = Value
-while EspDoing do
+local Button = Tab:CreateButton({
+   Name = "Button Example",
+   Callback = function()
 local Players = cloneref(game:GetService("Players"))
 local RunService = cloneref(game:GetService("RunService"))
 local Workspace = cloneref(game:GetService("Workspace"))
@@ -294,7 +287,7 @@ local function updateESP()
         highlightGenerators()
         
 
-        task.wait(3) -- More accurate and efficient timing
+        task.wait(4) -- More accurate and efficient timing
     end
 end
 game:GetService("StarterGui"):SetCore("SendNotification", {Title = "Esp"; Text = "Loaded!"; Duration = 20})
