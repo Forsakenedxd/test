@@ -311,27 +311,6 @@ local Button = Tab:CreateButton({
 })
 
 local Slider = Tab:CreateSlider({
-   Name = "Max Stamina",
-   Range = {90, 125},
-   Increment = 5,
-   Suffix = "Of Stamina",
-   CurrentValue = 100,
-   Flag = "Slider1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
-   Callback = function(Stamina)
-local Sprinting = game:GetService("ReplicatedStorage").Systems.Character.Game.Sprinting
-local m = require(Sprinting)
-m.MaxStamina = Stamina
-m.StaminaGain = 25
-
-
-
-m.StaminaLoss = 10
-m.SprintSpeed = Value
-   -- The variable (Value) is a number which correlates to the value the slider is currently at
-   end,
-})
-
-local Slider = Tab:CreateSlider({
    Name = "Stamina",
    Range = {25, 29},
    Increment = 1,
@@ -341,7 +320,7 @@ local Slider = Tab:CreateSlider({
    Callback = function(Value)
 local Sprinting = game:GetService("ReplicatedStorage").Systems.Character.Game.Sprinting
 local m = require(Sprinting)
-m.MaxStamina = Stamina
+m.MaxStamina = 100
 m.StaminaGain = 25
 
 
@@ -350,8 +329,6 @@ m.StaminaLoss = 10
 m.SprintSpeed = Value
    end,
 })
-
-
 
 local Tab = Window:CreateTab("Settings Themes", 4483362458) -- Title, Image
 local Section = Tab:CreateSection("Themes")
