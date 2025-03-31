@@ -292,6 +292,7 @@ local function updateESP()
 
         
         updateHealthIndicators()
+        highlightMinions()
         highlightGenerators()
         
 
