@@ -252,6 +252,14 @@ local function highlightGenerators()
 end
 end
 
+local function highlightMinions()
+    for _, obj in workspace:GetDescendants() do
+    if obj:IsA("Model") and obj.Name == "1x1x1x1Zombie" then
+        createOutlineESP(obj, Color3.fromRGB(0, 255, 0), Color3.fromRGB(0, 190, 0)) -- Yellow outline, light yellow fill
+    end
+end
+end
+
 local function updateESP()
     while true do
         local players = Players:GetPlayers() -- Store once to avoid multiple function calls
