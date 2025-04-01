@@ -320,9 +320,9 @@ local Button = Tab:CreateButton({
 })
 
 local Button = Tab:CreateButton({
-   Name = "Boost fps",
+   Name = "Boost FPS",
    Callback = function()
-game:GetService("Lighting").DepthOfField.Enabled = false 
+game.Lighting:GetService("DepthOfField").Enabled = false
    end,
 })
 
