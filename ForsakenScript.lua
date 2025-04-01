@@ -323,6 +323,14 @@ local Button = Tab:CreateButton({
    Name = "Boost FPS",
    Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/RobloxGamerblx/test/refs/heads/main/boostfps"))()
+
+Rayfield:Notify({
+   Title = "Boost FPS",
+   Content = "Boosted FPS Succesful (when will lag again use that)",
+   Duration = 6.5,
+   Image = 4483362458,
+})
+
    end,
 })
 
