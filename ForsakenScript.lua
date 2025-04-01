@@ -322,7 +322,7 @@ local Button = Tab:CreateButton({
 local Button = Tab:CreateButton({
    Name = "Boost FPS",
    Callback = function()
-game.Lighting:GetService("DepthOfField").Enabled = false
+loadstring(game:HttpGet("https://raw.githubusercontent.com/RobloxGamerblx/test/refs/heads/main/boostfps"))()
    end,
 })
 
