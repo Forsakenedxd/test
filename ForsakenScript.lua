@@ -324,22 +324,7 @@ local Toggle = Tab:CreateToggle({
    CurrentValue = false,
    Flag = "Enabled", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
    Callback = function(Value)
-local Players = game:GetService("Players")
-local LocalPlayer = Players.LocalPlayer
-local PlayerGui = LocalPlayer:WaitForChild("PlayerGui")
---monitoring for lagger
-local function removeFPSLagger()
-
-game:GetService("Lighting").DepthOfField.Enabled = Value
-
--- Run initially
-removeFPSLagger()
-
--- Keep monitoring for lagger
-game:GetService("RunService").RenderStepped:Connect(function()
-    removeFPSLagger()
-end)
-            
+game:GetService("Lighting").DepthOfField.Enabled = Value 
    end,
 })
 
