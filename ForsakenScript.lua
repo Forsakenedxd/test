@@ -319,16 +319,14 @@ local Button = Tab:CreateButton({
    end,
 })
 
-local Toggle = Tab:CreateToggle({
+local Button = Tab:CreateButton({
    Name = "Boost fps",
-   CurrentValue = false,
-   Flag = "Enabled", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
-   Callback = function(Value)
-game:GetService("Lighting").DepthOfField.Enabled = Value 
+   Callback = function()
+game:GetService("Lighting").DepthOfField.Enabled = false 
    end,
 })
 
-local Toggle = Tab:CreateButton({
+local Button = Tab:CreateButton({
    Name = "Show chat",
    Callback = function()
 game:GetService("TextChatService").ChatWindowConfiguration.Enabled = true
