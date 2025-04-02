@@ -12,7 +12,7 @@ local Window = Rayfield:CreateWindow({
    ConfigurationSaving = {
       Enabled = true,
       FolderName = Forsakenedxd, -- Create a custom folder for your hub/game
-      FileName = "Forsakenedyezz"
+      FileName = "Forsakenedxd"
    },
 
    Discord = {
