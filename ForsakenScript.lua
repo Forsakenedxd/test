@@ -260,28 +260,6 @@ end
 end
 
 local function highlightsubspaced()
-  local billboard = Instance.new("BillboardGui")
-    billboard.Name = "ToolNameLabel"
-    billboard.Adornee = Model
-    billboard.Size = UDim2.new(0, 100, 0, 30)
-    billboard.StudsOffset = Vector3.new(0, 2, 0)
-    billboard.AlwaysOnTop = true
-    billboard.MaxDistance = math.huge
-
-    
-    local textLabel = Instance.new("TextLabel")
-    textLabel.Size = UDim2.new(1, 0, 1, 0)
-    textLabel.BackgroundTransparency = 1
-    textLabel.Text = tool.Name
-    textLabel.TextColor3 = Color3.new(1, 1, 1) -- White text
-    textLabel.TextScaled = true
-    textLabel.Font = Enum.Font.SourceSansBold
-    textLabel.Parent = billboard
-
-    
-    billboard.Parent = Model
-end
-
     for _, obj in workspace:GetDescendants() do
     if obj:IsA("Model") and obj.Name == "SubspaceTripmine" then
         createOutlineESP(obj, Color3.fromRGB(200, 0, 255), Color3.fromRGB(220, 0, 255)) -- purple outline, light purple fill
