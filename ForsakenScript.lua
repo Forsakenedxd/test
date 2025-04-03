@@ -255,7 +255,15 @@ end
 local function highlightMinions()
     for _, obj in workspace:GetDescendants() do
     if obj:IsA("Model") and obj.Name == "1x1x1x1Zombie" then
-        createOutlineESP(obj, Color3.fromRGB(0, 255, 0), Color3.fromRGB(0, 190, 0)) -- Yellow outline, light yellow fill
+        createOutlineESP(obj, Color3.fromRGB(0, 255, 0), Color3.fromRGB(0, 190, 0)) -- green outline, not light green fill
+    end
+end
+end
+
+local function highlightMinions()
+    for _, obj in workspace:GetDescendants() do
+    if obj:IsA("Model") and obj.Name == "SubspaceTripmine" then
+        createOutlineESP(obj, Color3.fromRGB(200, 0, 255), Color3.fromRGB(220, 0, 255)) -- purple outline, light purple fill
     end
 end
 end
