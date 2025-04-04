@@ -259,6 +259,14 @@ local function highlightMinions()
 end
 end
 
+local function highlightDelivery()
+    for _, obj in workspace:GetDescendants() do
+    if obj:IsA("Model") and obj.Name == "PizzaDeliveryRig" then
+        createOutlineESP(obj, Color3.fromRGB(0, 120, 255), Color3.fromRGB(0, 160, 255)) -- blue outline, light blue fill
+    end
+end
+end
+
 local function highlightsubspaced()
     for _, obj in workspace:GetDescendants() do
     if obj:IsA("Model") and obj.Name == "SubspaceTripmine" then
@@ -300,6 +308,7 @@ local function updateESP()
         
         updateHealthIndicators()
         highlightMinions()
+        highlightDelivery()
         highlightsubspaced()
         highlightGenerators()
         
