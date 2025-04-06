@@ -294,8 +294,8 @@ local function updateESP()
                 if humanoid then
                     if humanoid.MaxHealth > 500 then
                         -- idk
-                        createOutlineESP(character, Color3.new(1, 0, 0), Color3.new(1, 0.5, 0.5))
-                        createHealthIndicator(character, Color3.new(1, 0, 0))
+                        createOutlineESP(character, Color3.fromRGB(255, 0, 0), Color3.new(255, 190, 0))
+                        createHealthIndicator(character, Color3.fromRGB(255, 0, 0))
                     else
                         -- killars
                         createOutlineESP(character, Color3.new(0.5, 0.5, 0.5), Color3.new(0.7, 0.7, 0.7))
@@ -316,7 +316,7 @@ local function updateESP()
         task.wait(4) -- More accurate and efficient timing
     end
 end
-game:GetService("StarterGui"):SetCore("SendNotification", {Title = "Esp"; Text = "Loaded!"; Duration = 20})
+game:GetService("StarterGui"):SetCore("SendNotification", {Title = "ESP"; Text = "loaded be like!"; Duration = 20})
 task.spawn(updateESP())
    end,
 })
