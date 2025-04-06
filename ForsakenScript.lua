@@ -294,7 +294,7 @@ local function updateESP()
                 if humanoid then
                     if humanoid.MaxHealth > 500 then
                         -- idk
-                        createOutlineESP(character, Color3.fromRGB(255, 0, 0), Color3.new(200, 0, 0))
+                        createOutlineESP(character, Color3.fromRGB(255, 0, 0), Color3.fromRGB(200, 0, 0))
                         createHealthIndicator(character, Color3.fromRGB(255, 0, 0))
                     else
                         -- killars
