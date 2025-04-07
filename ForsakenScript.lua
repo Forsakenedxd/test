@@ -351,10 +351,16 @@ Rayfield:Notify({
    end,
 })
 
-local Button = Tab:CreateButton({
-   Name = "Show chat",
-   Callback = function()
-game:GetService("TextChatService").ChatWindowConfiguration.Enabled = true
+local Toggle = Tab:CreateToggle({
+   Name = "Show Chat",
+   CurrentValue = false,
+   Callback = function(Value)
+ _G.ShowChat = Value
+ 
+ while _G.ShowChat do
+ game:GetService("TextChatService").ChatWindowConfiguration.Enabled = Value
+ wait()
+ end
    end,
 })
 
