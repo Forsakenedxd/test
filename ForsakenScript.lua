@@ -317,6 +317,7 @@ local function updateESP()
         updateHealthIndicators()
         highlightMinions()
         highlightDelivery()
+        highlightMafioso()
         highlightsubspaced()
         highlightGenerators()
         
