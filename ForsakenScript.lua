@@ -269,12 +269,27 @@ end
 
 local function highlightMafiaso()
     for _, obj in workspace:GetDescendants() do
-    if obj:IsA("Model") and obj.Name == "Mafiaso1", "Mafiaso2", "Mafiaso3" then
+    if obj:IsA("Model") and obj.Name == "Mafiaso1" then
         createOutlineESP(obj, Color3.fromRGB(0, 120, 255), Color3.fromRGB(0, 160, 255)) -- blue outline, light blue fill
     end
 end
 end
 
+local function highlightMafiaso2()
+    for _, obj in workspace:GetDescendants() do
+    if obj:IsA("Model") and obj.Name == "Mafiaso2" then
+        createOutlineESP(obj, Color3.fromRGB(0, 120, 255), Color3.fromRGB(0, 160, 255)) -- blue outline, light blue fill
+    end
+end
+end
+
+local function highlightMafiaso3()
+    for _, obj in workspace:GetDescendants() do
+    if obj:IsA("Model") and obj.Name == "Mafiaso3" then
+        createOutlineESP(obj, Color3.fromRGB(0, 120, 255), Color3.fromRGB(0, 160, 255)) -- blue outline, light blue fill
+    end
+end
+end
 
 local function highlightsubspaced()
     for _, obj in workspace:GetDescendants() do
@@ -319,6 +334,8 @@ local function updateESP()
         highlightMinions()
         highlightDelivery()
         highlightMafiaso()
+        highlightMafiaso2()
+        highlightMafiaso3()
         highlightsubspaced()
         highlightGenerators()
         
