@@ -267,6 +267,14 @@ local function highlightDelivery()
 end
 end
 
+local function highlightMafioso()
+    for _, obj in workspace:GetDescendants() do
+    if obj:IsA("Model") and obj.Name == "Mafiaso1" or "Mafiaso2" or "Mafiaso3" then
+        createOutlineESP(obj, Color3.fromRGB(0, 120, 255), Color3.fromRGB(0, 160, 255)) -- blue outline, light blue fill
+    end
+end
+end
+
 local function highlightsubspaced()
     for _, obj in workspace:GetDescendants() do
     if obj:IsA("Model") and obj.Name == "SubspaceTripmine" then
