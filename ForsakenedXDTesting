@@ -8,7 +8,6 @@ local aimbotActive = false
 local BabyShark = nil
 local BlockEnabled = false
 local Runners = false
-local MainRemoteEvent = ReplicatedStorage.Modules.Network.RemoteEvent
 local CurrentSound = "ShedletskyOLD.mp3"
 
 local MusicList = {
