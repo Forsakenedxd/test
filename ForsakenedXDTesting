@@ -10,15 +10,15 @@ local BlockEnabled = false
 local Runners = false
 local CurrentSound = "ShedletskyOLD.mp3"
 
-local MusicList = {
-   ["Shed OLD"] = "ShedletskyOLD.mp3",
-   ["Shed NEW"] = "ShedletskyNEW.mp3"
-}
-
 local fart = {
 	aimbot = {},
 	abilities = {},
 	characterChange = nil,
+}
+
+local MusicList = {
+   ["Shed OLD"] = "ShedletskyOLD.mp3",
+   ["Shed NEW"] = "ShedletskyNEW.mp3"
 }
 
 local Window = Rayfield:CreateWindow({
@@ -319,32 +319,30 @@ local function ChangeMusic(music)
 end
 
 local Dropdown = Tab:CreateDropdown({
-   Name = "LMS choice",
-   Options = {
-   "Shed OLD",
-   "Shed NEW"
-   },
-   CurrentOption = { "Shed OLD" },
-   MultipleOptions = false,
-   Flag = "Dropdown1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
-   Callback = function(Options)
-      CurrentSound = MusicList[Options[1]]
-	   if ReplaceStandingMusic then
-			   ChangeMusic(CurrentSound)
-   	end
-   end,
+	Name = "Music List",
+	Options = {
+		"Shed OLD",
+		"Shed NEW"
+	},
+	CurrentOption = { "Shed OLD" },
+	MultipleOptions = false,
+	Callback = function(Options)
+		CurrentSound = MusicList[Options[1]]
+		if ReplaceStandingMusic then
+			ChangeMusic(CurrentSound)
+		end
+	end,
 })
 
 local Toggle = Tab:CreateToggle({
-   Name = "Music Replacement (TESTING)",
-   CurrentValue = false,
-   Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
-   Callback = function(Value)
-      LastStandingReplacement(state)
-			if ReplaceStandingMusic then
-				ChangeMusic(CurrentSound)
+	Name = "Replace Last Standing Music",
+	CurrentValue = false,
+	Callback = function(state)
+		LastStandingReplacement(state)
+		if ReplaceStandingMusic then
+			ChangeMusic(CurrentSound)
 		end
-   end,
+	end,
 })
 
 local Tab = Window:CreateTab("Settings Themes", 4483362458) -- Title, Image
