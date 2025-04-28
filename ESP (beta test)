@@ -202,6 +202,22 @@ local function highlightsubspaced()
 end
 end
 
+local function highlightDispenser()
+    for _, obj in workspace:GetDescendants() do
+    if obj:IsA("Model") and obj.Name == "BuildermanDispenser" then
+        createOutlineESP(obj, Color3.fromRGB(200, 0, 255), Color3.fromRGB(220, 0, 255)) -- purple outline, light purple fill
+    end
+end
+end
+
+local function highlightSentry()
+    for _, obj in workspace:GetDescendants() do
+    if obj:IsA("Model") and obj.Name == "BuildermanSentry" then
+        createOutlineESP(obj, Color3.fromRGB(200, 0, 255), Color3.fromRGB(220, 0, 255)) -- purple outline, light purple fill
+    end
+end
+end
+
 local function updateESP()
     while true do
         local players = Players:GetPlayers() -- Store once to avoid multiple function calls
@@ -242,6 +258,8 @@ local function updateESP()
         highlightBuilderman()
         highlightShed()
         highlightsubspaced()
+        highlightDispenser()
+        highlightSentry()
         highlightGenerators()
         
 
