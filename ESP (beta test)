@@ -281,8 +281,8 @@ local function updateESP()
         highlightGenerators()
         
 
-        task.wait(4) -- More accurate and efficient timing
+        task.wait() -- More accurate and efficient timing
     end
 end
-game:GetService("StarterGui"):SetCore("SendNotification", {Title = "ESP"; Text = "loaded be like!"; Duration = 20})
+game:GetService("StarterGui"):SetCore("SendNotification", {Title = "ESP"; Text = " "; Duration = 20})
 task.spawn(updateESP())
