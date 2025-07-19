@@ -1,4 +1,4 @@
-local Games = loadstring(game:HttpGet("https://raw.githubusercontent.com/RobloxGamerblx/test/refs/heads/main/Games.lua"))()
+local Games = loadstring(game:HttpGet("https://raw.githubusercontent.com/Forsakenedxd/test/refs/heads/main/Games.lua"))()
 
 for PlaceID, Execute in pairs(Games) do
     if PlaceID == game.PlaceId then
